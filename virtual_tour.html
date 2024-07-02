@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>VR Cafe Tour Bandar Lampung</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component/dist/aframe-proxy-event-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <audio id="click-sound" src="./audio/click.ogg"></audio>
+            <img id="backgr" src="./assets/background.png">
+            <img id="orb1" src="./assets/1_mts_miftahul_ulum_balam.png">
+            <img id="orb2" src="./assets/2_sd_sidosari_balam.png">
+            <img id="orb3" src="./assets/3_sd01.png">
+            <img id="orb4" src="./assets/4_sd01_gunung_terang.png">
+            <img id="orb5" src="./assets/5_sd01_kalibalanngan.png">
+            <img id="orb6" src="./assets/6_sd01_kalibening.png">
+            <img id="orb7" src="./assets/7_sd01_kelapa_tujuh.png">
+            <img id="orb8" src="./assets/8_sd01_tanjung_iman.png">
+            <img id="orb9" src="./assets/9_sd02_kotabumi.png">
+            <img id="orb10" src="./assets/10_sd02_labuhan_dalam.png">
+            <img id="orb11" src="./assets/11_sd03_labuhan_balam.png">
+            <img id="orb12" src="./assets/12_sd04_tanjung_aman.png">
+            <img id="orb13" src="./assets/13_sd06_kelapa_tujuh.png">
+            <img id="orb14" src="./assets/14_sdit_balam.png">
+            <img id="orb15" src="./assets/15_sma_pgri_kotabumi.png">
+            <img id="orb16" src="./assets/16_sma_wiyata_karya.png">
+            <img id="orb17" src="./assets/17_sma_yadika_balam.png">
+            <img id="orb18" src="./assets/18_smp_al_azhar.png">
+            <img id="orb19" src="./assets/19_smp_xaverius_kotabumi.png">
+            <img id="orb20" src="./assets/20_smp04_bukitkemuning.png">
+        </a-assets>
+
+        <!-- Kamera + kursor. -->
+        <a-entity id="camera" camera look-controls>
+            <a-cursor id="cursor" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.02;"
+                material="color: black; shader: flat" cursor="maxDistance: 30; fuse: true"
+                animation__click="property: scale; from: 0.5 0.5 0.5; to: 1 1 1;startEvents: click; dur: 150;easing:easeInQuad;"
+                animation__fusing="property: scale; from: 1 1 1; to: 0.5 0.5 0.5;startEvents: fusing; dur: 1000;easing:easeInQuad;"
+                event-set__mouseenter="_event: mouseenter; color: springgreen"
+                event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .link"></a-cursor>
+        </a-entity>
+
+        <!-- Gambar 360 -->
+        <a-sky id="image-360" src="#backgr"></a-sky>
+
+        <!-- Tautan. -->
+        <a-entity id="links" layout="type: box; columns: 5; margin: 1.5" position="0 -1 -4">
+            <!-- Tautan mts miftahul ulum balam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb1"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb1">
+                <a-text value="mts miftahul ulum balam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan sd sidosari balam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb2"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb2">
+                <a-text value="sd sidosari balam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan sd01 -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb3"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb3">
+                <a-text value="sd01" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SDN 01 gunung terang -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb4"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb4">
+                <a-text value="SDN 01 gunung terang" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SDN 01 kalibalanngan -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb5"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb5">
+                <a-text value="SDN 01 kalibalanngan" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 01_kalibening -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb6"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb6">
+                <a-text value="SD 01 kalibening" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 01 kelapa tujuh -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb7"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb7">
+                <a-text value="SD 01 kelapa tujuh" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 01 tanjung iman -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb8"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb8">
+                <a-text value="SD 01 tanjung iman" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 02 labuhan dalam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb9"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb9">
+                <a-text value="SD 02 labuhan dalam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 03 labuhan balam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb10"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb10">
+                <a-text value="SD 03 labuhan balam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 04 tanjung aman -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb11"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb11">
+                <a-text value="SD 04 tanjung aman" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SD 06 kelapa tujuh -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb12"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb12">
+                <a-text value="SD 06 kelapa tujuh" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SDIT balam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb13"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb13">
+                <a-text value="SDIT balam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMA pgri kotabumi -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb14"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb14">
+                <a-text value="SMA pgri kotabumi" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMA wiyata karya -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb15"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb15">
+                <a-text value="SMA wiyata karya" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMA yadika balam -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb16"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb16">
+                <a-text value="SMA yadika balam" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMP al azhar -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb17"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb17">
+                <a-text value="SMP al azhar" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMP xaverius kotabumi -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb18"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb18">
+                <a-text value="SMP xaverius kotabumi" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMP  -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb19"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb19">
+                <a-text value="SMP " align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+
+            <!-- Tautan SMP 04 bukitkemuning -->
+            <a-entity class="link" geometry="primitive: circle; radius: 0.4;" material="shader: flat; src: #orb20"
+                event-set__click="_event: click; _target: #image-360; _delay: 300;"
+                proxy-event="event: click; to: #image-360; as: fade" sound="on: click; src: #click-sound"
+                data-src="#orb20">
+                <a-text value="SMP 04 bukitkemuning" align="center" position="0 -0.6 0" width="3"></a-text>
+            </a-entity>
+        </a-entity>
+
+        <!-- Skrip klik suara -->
+        <a-entity sound="src: #click-sound"></a-entity>
+        <script>
+            AFRAME.registerComponent('set-image', {
+                schema: {
+                    on: { type: 'string' },
+                    target: { type: 'selector' },
+                    src: { type: 'string' }
+                },
+                init: function () {
+                    var data = this.data;
+                    this.el.addEventListener(data.on, function () {
+                        data.target.setAttribute('src', data.src);
+                    });
+                }
+            });
+    
+            document.querySelectorAll('.link').forEach(link => {
+                link.addEventListener('click', function () {
+                    var imgSrc = this.getAttribute('data-src');
+                    document.querySelector('#image-360').setAttribute('src', imgSrc);
+                });
+            });
+        </script>
+    </a-scene>
+</body>
+
+</html>

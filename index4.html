@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <title>TourCafe-VR-Amir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>VR Sekolah Lampung</h1>
+    <h3>By Muhamad Amirudin - UAS Virtual Reality</h3>
+    <button class="button" onclick="showContent('start')">Start</button>
+    <button class="button" onclick="showContent('guide')">Tutorial</button>
+    <button class="button" onclick="showContent('about')">About</button>
+
+    <div id="start" class="content">
+        <iframe src="virtual_tour.html"></iframe>
+        <a href="javascript:void(0)" class="back-button" onclick="hideContent()">Back</a>
+    </div>
+
+    <div id="guide" class="content">
+        <h2>VR Sekolah Lampung</h2>
+        <p>1. Klik tombol "Start" untuk memulai tampilan tour virtual</p>
+        <p>2. Klik tombol "VR" di bagian kanan bawah pada tampilan untuk melihat virtual tour secara full screen.</p>
+        <p>3. Gunakan kursor untuk menavigasi dan klik pada objek yang diinginkan untuk melihat detail lebih lanjut.</p>
+        <p>4. Gunakan tombol kembali di sudut kiri atas untuk kembali ke halaman utama (Menu).</p>
+        <a href="javascript:void(0)" class="back-button" onclick="hideContent()">Back</a>
+    </div>
+
+    <div id="about" class="content">
+        <h2>VR Sekolah Lampung</h2>
+        <p>Virtual tour dengan nama "VR sekolah Lampung" ini dibuat untuk menampilkan berbagai macam cafe-cafe yang ada di kota Bandar Lampung. Anda dapat menavigasi melalui gambar-gambar 360 derajat dan mendapatkan informasi tentang masing-masing institusi.</p>
+        <p>Pembuat: Muhamad Amirudin 2113025023 - PTI 2021</p>
+        <a href="javascript:void(0)" class="back-button" onclick="hideContent()">Back</a>
+    </div>
+
+    <script>
+        function showContent(id) {
+            document.getElementById('start').style.display = 'none';
+            document.getElementById('guide').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function hideContent() {
+            document.getElementById('start').style.display = 'none';
+            document.getElementById('guide').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
